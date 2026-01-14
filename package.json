@@ -1,0 +1,177 @@
+{
+  "name": "@allow2/allow2automate-google-family-link",
+  "shortName": "google-family-link",
+  "version": "0.0.1",
+  "description": "Enable Allow2Automate to monitor and control Google Family Link features",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "test": "react-scripts test --env=jsdom",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "prepublish": "npm run build",
+    "predeploy": "cd example && npm install && npm run build",
+    "deploy": "gh-pages -d example/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Allow2/allow2automate-google-family-link"
+  },
+  "bugs": {
+    "url": "https://github.com/Allow2/allow2automate-google-family-link/issues"
+  },
+  "homepage": "https://github.com/Allow2/allow2automate-google-family-link#readme",
+  "allow2Token": "GoogleFamilyLink2024",
+  "keywords": [
+    "allow2automate",
+    "allow2",
+    "google",
+    "family-link",
+    "parental-controls",
+    "screen-time",
+    "device-monitoring",
+    "plugin"
+  ],
+  "author": {
+    "name": "Allow2",
+    "url": "https://allow2.com"
+  },
+  "license": "MIT",
+  "allow2automate": {
+    "plugin": true,
+    "pluginId": "allow2automate-google-family-link",
+    "displayName": "Google Family Link",
+    "category": "Parental Controls",
+    "permissions": [
+      "network",
+      "configuration",
+      "storage"
+    ],
+    "minAppVersion": "2.0.0",
+    "api": {
+      "actions": [
+        {
+          "id": "authenticate",
+          "name": "Authenticate",
+          "description": "Authenticate with Google Family Link account"
+        },
+        {
+          "id": "getFamilyMembers",
+          "name": "Get Family Members",
+          "description": "Retrieve list of family members and their devices"
+        },
+        {
+          "id": "getDeviceInfo",
+          "name": "Get Device Info",
+          "description": "Get detailed information about a family member's device"
+        },
+        {
+          "id": "getScreenTime",
+          "name": "Get Screen Time",
+          "description": "Get screen time usage for a family member"
+        },
+        {
+          "id": "getActivityReport",
+          "name": "Get Activity Report",
+          "description": "Get activity report for a family member"
+        },
+        {
+          "id": "lockDevice",
+          "name": "Lock Device",
+          "description": "Lock a family member's device"
+        },
+        {
+          "id": "unlockDevice",
+          "name": "Unlock Device",
+          "description": "Unlock a family member's device"
+        },
+        {
+          "id": "setBedtime",
+          "name": "Set Bedtime",
+          "description": "Set bedtime restrictions for a family member"
+        },
+        {
+          "id": "setDailyLimit",
+          "name": "Set Daily Limit",
+          "description": "Set daily screen time limit for a family member"
+        },
+        {
+          "id": "addBonusTime",
+          "name": "Add Bonus Time",
+          "description": "Add bonus screen time for a family member"
+        },
+        {
+          "id": "getLocation",
+          "name": "Get Location",
+          "description": "Get GPS location of a family member's device"
+        }
+      ],
+      "triggers": [
+        {
+          "id": "deviceLocked",
+          "name": "Device Locked",
+          "description": "Triggered when a device is locked by bedtime or time limit"
+        },
+        {
+          "id": "screenTimeExceeded",
+          "name": "Screen Time Exceeded",
+          "description": "Triggered when a family member exceeds their screen time limit"
+        },
+        {
+          "id": "locationUpdate",
+          "name": "Location Update",
+          "description": "Triggered when device location is updated"
+        },
+        {
+          "id": "activityUpdate",
+          "name": "Activity Update",
+          "description": "Triggered when family member activity is updated"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.9",
+    "axios": "^1.6.0",
+    "googleapis": "^128.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0 || ^17.0.0",
+    "react-dom": "^16.0.0 || ^17.0.0",
+    "@material-ui/core": "^4.0.0"
+  },
+  "files": [
+    "dist",
+    "img"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-external-helpers": "^7.12.13",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.13.9",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "rollup": "^2.40.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.0"
+  }
+}
